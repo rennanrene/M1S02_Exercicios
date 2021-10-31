@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[M1S02] - Ex 1 - Gerador de história</title>
+    <style>
+        #texto{
+            display: block;
+            text-align: justify;
+            width: 400px;
+            height: 300px;
+            margin: auto auto auto auto;
+
+        }
+
+    </style>
+</head>
+   
+<body>
+    <p id="texto"></p> 
+    <script>
+        var nome = prompt("Digite seu nome:");
+        var idade =prompt("Digite sua idade:");
+        var esportePredileto = prompt("Digite seu esporte favorito:");
+        var diaDaSemana =prompt("Digite seu dia da semana predileto::");
+        var alguemImportante = prompt("Digite o nome de alguém que voce acha importante:");
+        var alguemAdmiravel = prompt("Digite o nome de alguém que voce admira:");
+    
+        document.getElementById("texto").innerHTML = "Hoje, "+ diaDaSemana +", é um dia histórico. Todos os fãs de "+esportePredileto+" estão maravilhados com a proeza realizada pelo(a) atleta "+nome+". "+alguemImportante+" não conteve as lágrimas ao comentar sobre em uma entrevista e até o(a) "+alguemAdmiravel+" twittou “é muito bom ver alguém com "+idade+" demonstrando tanta habilidade";
+    </script>
+    
+</body>
+</html>
