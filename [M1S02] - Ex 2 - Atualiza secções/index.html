@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[M1S02] - Ex 2 - Atualiza secções</title>
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class=container>
+        <section>
+            <label>Número de participantes</label>
+            <p class=valores id=numPart></p>
+        </section>
+        <section>
+            <label>Idade média dos participantes</label>
+            <p class=valores id=media></p>
+        </section>
+        <section>
+            <label>Número de satisfeitos</label>
+            <p class=valores id=satisf></p>
+        </section>
+    </div>
+    <button onclick="cadastrar()">Participar</button>
+    <script>
+        var numDeParticipantes = 0;
+        var mediaIdades = 0;
+        var numDeSatisfeitos = 0;
+        document.getElementById("numPart").innerHTML = numDeParticipantes;
+        document.getElementById("media").innerHTML = mediaIdades;
+        document.getElementById("satisf").innerHTML = numDeSatisfeitos;
+        function cadastrar(){
+            var nome = prompt("Digite seu nome");
+            var satisfacao = prompt("Digite um número de 1 a 10 para expressar sua satisfação");
+            var idade = prompt("Digite sua idade");
+            var autorizado = confirm("Podemos incluir você na lista de satisfeitos?");
+            alert("Salvo com sucesso");
+            atualizar(idade, autorizado);
+            document.getElementById("numPart").innerHTML = numDeParticipantes;
+            document.getElementById("media").innerHTML = mediaIdades;
+            document.getElementById("satisf").innerHTML = numDeSatisfeitos;
+
+        }
+        function atualizar(idade, autorizado){
+            idade = Number(idade);
+            mediaIdades = (mediaIdades*(numDeParticipantes) + idade)/(numDeParticipantes + 1);
+            
+            numDeParticipantes++;
+            if (autorizado == true){
+                numDeSatisfeitos++;
+            }
+ 
+
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+<!--
+Construir tela com 3 sections lado a lado com as seguintes legendas:
+Número de participantes
+Idade média dos participantes
+Número de satisfeitos
+Abaixo deve existir um botão centralizado com o texto “participar”
+Ao clicar deve ser exibido em sequência as seguintes mensagens
+“Digite seu nome”
+“Digite um número de 1 a 10 para expressar sua satisfação
+“Digite sua idade”
+“Podemos incluir você na lista de satisfeitos?”
+“Salvo com sucesso”
+As sections devem ser atualizadas após cada resposta
+
+
+-->

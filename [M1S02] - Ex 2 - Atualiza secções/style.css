@@ -1,0 +1,18 @@
+.container{
+    display: block;
+    text-align: center;
+}
+
+section{
+    display:inline-block;
+    margin: auto auto auto auto;
+}
+
+label{
+    text-align: center;
+}
+
+button{
+    display: block;
+    margin: auto auto auto auto;
+}
