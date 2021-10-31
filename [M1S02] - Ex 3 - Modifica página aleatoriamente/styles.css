@@ -1,0 +1,24 @@
+:root{
+    --corDeFundo: white;
+    --corDosElementosSobrepostos: black;
+    --corDoTexto: black;
+}
+
+body{
+    background-color: var(--corDeFundo);
+}
+
+.principal {
+    display: block;
+    color: var(--corDoTexto);
+    background-color: var(--corDosElementosSobrepostos);
+    width: 400px;
+    height: 300px;
+    margin: 0 auto auto auto;
+}
+
+#botao{
+    display: block;
+    margin: 0 auto auto auto;
+}
+
