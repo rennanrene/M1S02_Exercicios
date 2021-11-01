@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[M1S02] - Ex 4 - Modifica página com regra aleatória</title>
+    <style type="text/css">
+    :root{
+        --corFundo: None;
+        --imgBackground: None
+    }
+    body{
+        background-color: var(--corFundo);
+        background-image: var(--imgBackground);
+    }
+    .telaFoto1{
+        display: flexbox;
+        background-image: url(https://picsum.photos/200/300);
+        height: fit-content;
+        width: fit-content;
+    }
+    .telaFoto2{
+        display: flexbox;
+        background-image: url(https://via.placeholder.com/500);
+        height: fit-content;
+        width: fit-content;
+    }
+    </style>
+</head>
+<body>
+    <script>
+        function getRandomIntInclusive (min, max){
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random()*(max+1-min)) + min;
+        }
+        function testeGrupo(numero){
+            if(numero>=501){
+                numMaiores++;
+            }
+            else{
+                numMenores++;
+            }
+        }
+        const numeros = [];
+        var numMaiores = 0;
+        var numMenores = 0;
+        var quantCens = 0;
+        for (var i=0; i<1000;i++){
+            numeros[i]= getRandomIntInclusive(0,1000);
+            testeGrupo(numeros[i]);
+            if (numeros[i] == 100){
+                quantCens++;
+            }
+        }
+
+        var root = document.documentElement;
+        if(quantCens > 1){
+            root.style.setProperty('--corFundo', "black");
+        }
+        else if(quantCens == 1){
+            root.style.setProperty('--corFundo', "orange");
+        }
+        
+        else if (numMaiores > numMenores){
+            root.style.setProperty('--imgBackground', "url(https://picsum.photos/200/300)");
+            // document.write("<div class=\"telaFoto1\"></div>");
+        }
+        else{
+            root.style.setProperty('--imgBackground', "url(https://via.placeholder.com/500)");
+            //document.write("<div class=\"telaFoto2\"></div>");    
+        }
+        console.log(numeros)
+        console.log(numMaiores);
+        console.log(numMenores);
+        console.log(quantCens);
+
+
+    </script>
+</body>
+</html>
