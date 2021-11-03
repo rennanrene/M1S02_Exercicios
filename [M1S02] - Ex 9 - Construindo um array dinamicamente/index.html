@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[M1S02] - Ex 9 - Construindo um array dinamicamente</title>
+</head>
+<body>
+    <script>
+        var listaPalavras = [];
+        var listaContraria = [];
+        function escrevePalavra(){
+            while(palavra != "parar"){
+                var palavra = prompt("Digite uma palavra: ");
+                listaPalavras.push(palavra);
+            }
+        }
+        function ordemAlfabeticaContraria(lista){
+            var ordenada = lista.sort();
+            var ordemContraria = [];
+            for (var i =0; i < ordenada.length; i++){
+                console.log(ordenada[(ordenada.length - 1) - i])
+                ordemContraria.push(ordenada[(ordenada.length - 1) - i]);
+            }
+            return ordemContraria;
+        }
+        escrevePalavra()
+        listaContraria = ordemAlfabeticaContraria(listaPalavras);
+        for (var i=0; i < listaContraria.length; i++){
+            var novasection = document.createElement("section");
+            novasection.setAttribute("id", listaContraria[i]);
+            document.body.appendChild(novasection);
+            novasection.innerHTML = listaContraria[i];
+        }
+    </script>
+</body>
+</html>
