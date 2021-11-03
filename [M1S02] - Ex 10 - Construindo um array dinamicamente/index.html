@@ -9,29 +9,35 @@
 <body>
     <script>
         var listaPalavras = [];
-        var listaContraria = [];
+        var listaComTamanhos = [];
         function escrevePalavra(){
             while(palavra != "parar"){
                 var palavra = prompt("Digite uma palavra: ");
                 listaPalavras.push(palavra);
             }
         }
-        function ordemAlfabeticaContraria(lista){
-            var ordenada = lista.sort();
-            var ordemContraria = [];
-            for (var i =0; i < ordenada.length; i++){
-                console.log(ordenada[(ordenada.length - 1) - i])
-                ordemContraria.push(ordenada[(ordenada.length - 1) - i]);
+        
+        function adicionarTamanhoPalavras(lista){
+            var listaGerada = []; 
+            for (var i =0; i < lista.length; i++){
+                let novoElemento = {
+                    "palavra" : lista[i],
+                    "tamanho" : lista[i].length
+                }
+                listaGerada.push(novoElemento);
             }
-            return ordemContraria;
+            return listaGerada;
         }
         escrevePalavra()
-        listaContraria = ordemAlfabeticaContraria(listaPalavras);
-        for (var i=0; i < listaContraria.length; i++){
+        var listaComTamanhos = adicionarTamanhoPalavras(listaPalavras);
+        var listaOrdenada = listaComTamanhos.sort(function(a,b){return a.tamanho - b.tamanho;});
+        
+        //listaContraria = ordemAlfabeticaContraria(listaPalavras);
+        for (var i=0; i < listaOrdenada.length; i++){
             var novasection = document.createElement("section");
-            novasection.setAttribute("id", listaContraria[i]);
+            novasection.setAttribute("id", listaOrdenada[i]["palavra"]);
             document.body.appendChild(novasection);
-            novasection.innerHTML = listaContraria[i];
+            novasection.innerHTML = listaOrdenada[i]["palavra"];
         }
     </script>
 </body>
